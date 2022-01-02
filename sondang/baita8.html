@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+        cau hoi thuong gap : 
+            -  Tai sao khi code thuan dung map phai dung join().....
+    -->
+    <div id="root"></div>
+    <script type="text/babel">
+        const jsx = (
+            <React.Fragment>
+            <h1>headding 1</h1>
+            <h1>headding 2</h1>
+            </React.Fragment>
+        )
+        // React.Fragment (gom nhieu element ben trong , khoong sinh ra the gi trong DOM ca)
+        // neu su dung React.createElement thi 
+        // const jsx = React.createElement(
+        //         React.Fragment,
+        //         null,
+        //         React.createElement("h1",null,"headding1"),
+        //         React.createElement("h1",null,"headding1")
+        //     )
+        const root = document.getElementById("root");
+        ReactDOM.render(jsx, root);
+    </script>
+</body>
+
+</html>
