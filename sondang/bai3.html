@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    1. tại sao phải sử dụng react-DOM 
+    2. tại sao lại lách react-DOM ra ?  
+    3. Render UI   
+    react-native -ios ,android 
+-->
+
+    <div id="root"></div>
+    <script>
+        const uiReact = React.createElement(
+            "div", {
+                className: "post-item",
+            },
+            React.createElement("h2", {
+                title: "HOC REACT VOI F8"
+            }, "HOC REACT JS"),
+            React.createElement("p",
+                null,
+                "hocj js tu co ban den nang cao")
+        )
+        console.log(uiReact);
+
+        // Get root element 
+        const root = document.getElementById("root");
+        // RENDER (F RENDER (element,container,callback))
+
+        // React-DOM -> render UI
+        ReactDOM.render(uiReact,root);
+    </script>
+</body>
+
+</html>

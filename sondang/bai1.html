@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>bui minh tuan hoc reactJS</h1>
+
+
+    <script>
+        const ulDOM = document.createElement("ul");
+        ulDOM.id = "ul-id";
+        ulDOM.style = "font-size: 22px ; font-weight: bold;";
+        const liDOM1 = document.createElement("li");
+        liDOM1.innerText = "react js";
+        liDOM1.id = "li1-id";
+        const liDOM2 = document.createElement("li");
+        liDOM2.innerText = "javascript";
+        liDOM1.id = "li2-id";
+
+        ulDOM.appendChild(liDOM1);
+        ulDOM.appendChild(liDOM2);
+        document.body.appendChild(ulDOM);
+
+
+        // React  -> ReactDOM -> render
+        // React.createElement(type,props,children , n);
+        // React 
+        const ulReact = React.createElement(
+            "ul", {
+                id: "react-id",
+                style: "font-size: 22px ; font-weight: bold;",
+            },
+            React.createElement("li", {
+                id: "react-1"
+            }, 'react js'),
+            React.createElement("li", {
+                id: "react-2"
+            }, 'javascript')
+        );
+
+        console.log(ulReact);
+    </script>
+</body>
+
+</html>
