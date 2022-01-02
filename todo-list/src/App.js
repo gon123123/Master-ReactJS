@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { Component } from "react";
+import "./App.css";
+import TodoItem from "./components/Todoitem.js";
 function App() {
+  const arrTodo = [
+    { title: "mua bim bim", isComplete: true },
+    { title: "di choi cong vien khung long" , isComplete: false},
+    { title: "choi cong vien lan 2" , isComplete: true},
+  ];
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      {arrTodo.length > 0 &&
+        arrTodo.map((item, index) => (
+          <TodoItem key={index.toString()} item={item} />
+        ))}
+        {arrTodo.length === 0 && 'Nothing herre'}
     </div>
   );
 }
