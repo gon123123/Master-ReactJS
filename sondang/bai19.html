@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    - dung spread , rest trong es6 để giải quyết 
+-->
+    <div id="root"></div>
+    <script type="text/babel">
+        function Input ({label,...inputProps}){ // dung destructuring , va rest 
+            return (
+                <div>
+                    <label>{label}</label>
+                    <input {...inputProps } />         // dung spread de giai ra 
+                </div>
+            )
+        }
+        // container 
+        function App() { // nếu không có cái gì luôn thì trả về undefine
+
+            let firstAccess = true;
+            const title = "chao anh em";
+            return (
+                        <div id="wrapper">
+                            <Input
+                                label ={"Full Name"}
+                                type ="text"
+                                placeholder ={"nhap ten day du"}
+                                title ="day la title"
+                                onFocus={()=> {
+                                    console.log(Math.random()*10);
+                                }}
+                            />
+                        </div>
+                    )
+        }
+        ReactDOM.render(<App />,document.getElementById("root"));
+    </script>
+</body>
+
+</html>
