@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="root"></div>
+    <script type="text/babel">
+        const courses = [    // fetch api ve
+                {
+                "id": 2,
+                "title": "HTML, CSS từ Zero đến Hero",
+                "description": "Trong khóa này chúng ta sẽ cùng nhau xây dựng giao diện 2 trang web là The Band & Shopee.",
+                "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-production/courses/2.png",
+                },
+                {
+                "id": 7,
+                "title": "Kiến Thức Nhập Môn",
+                "description": "Để có cái nhìn tổng quan về ngành IT - Lập trình web các bạn nên xem các videos tại khóa này trước nhé.",
+                "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-production/courses/7.png",
+                },
+                {
+                "id": 5,
+                "title": "HTML, CSS Tips & Tricks",
+                "description": "Tutorials về HTML, CSS, UI, UX sẽ được tổng hợp tại khóa học này, các video có nội dung ngắn gọn, súc tích giúp học viên có thể ứng dụng ngay vào thực tế",
+                "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-production/courses/5.png",
+                },
+                {
+                "id": 4,
+                "title": "App \"Đừng Chạm Tay Lên Mặt\"",
+                "description": "Xây dựng ứng dụng đưa ra cảnh báo khi người dùng sờ tay lên mặt. Chúng ta sẽ sử dụng thư viện ReactJS & Tensoflow để hoàn thiện ứng dụng này.",
+                "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-production/courses/4/61a9e9e701506.png",
+                },
+                {
+                "id": 14,
+                "title": "Làm việc với Terminal & Ubuntu",
+                "description": "Sở hữu một Terminal hiện đại, mạnh mẽ trong tùy biến và học cách làm việc với Ubuntu là một bước quan trọng trên con đường trở thành một Web Developer.",
+                "thumbnail_cdn": "https://cdn.fullstack.edu.vn/f8-production/courses/14/61a89fb15f2fb.png",
+                }
+            ] ; 
+function CourseItem ({course}){ //  sử dụng destructuring {}
+    return (
+        <div>
+            <p>id :{course.id}</p>
+            <p>{course.title}</p>
+            <p>{course.description}</p>
+            <img src={course.thumbnail_cdn} alt={course.title} />
+        </div>
+    )
+}
+        function App() {
+            return (
+                    <div id="wrapper">
+                    <button onDoubleClick={(event)=> console.log(event.target)}
+                    >
+                    Click me</button>
+                    </div>
+                )
+        }
+        ReactDOM.render(<App />,document.getElementById("root"));
+    </script>
+</body>
+
+</html>

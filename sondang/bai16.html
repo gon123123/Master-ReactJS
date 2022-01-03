@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<style>
+    *{
+        padding: 0 ;
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 17px;
+    }
+    a{
+        text-decoration:  none;
+    }
+    button{
+        border: none;
+    }
+    a,button {
+        /* height:40px ; để thẻ a và button giống nau thì không nên dung height và width  */
+        background-color: #c306 ;
+        color: #fff ;
+        padding : 7px 15px;
+        margin : 10px 20px ;
+    }
+</style>
+<body>
+
+    <div id="root"></div>
+    <script type="text/babel">
+        function Button ({title,href,onClick}){
+            let Component = 'button';
+            const props = {};
+            if(href){
+                Component = "a";
+                props.href = href;
+            }
+            if(onClick){
+                props.onClick = onClick; // onClick nhận từ tham só trên hàm của mình (đối số truyền vào là   = {()=> console.log(Math.random()*10)})
+            }
+            console.log(props);
+            return (
+                // ...props == onClick={onClick}
+                <Component {...props}>{title}</Component> // viết hoa lên C (cái này là Component mà )
+            )
+        }
+        // container 
+        function App() {
+
+            return (
+                    <div id="wrapper">
+                        <Button 
+                            title="Click me"
+                            href="https://github.com/"
+                            onClick = {()=> console.log(Math.random()*10)} // ứng dụng dếm số lần truy cập 
+                        />
+                        <Button 
+                            title="Click me"
+                            // href="https://github.com/"
+                            onClick = {()=> console.log(Math.random()*10)} // ứng dụng dếm số lần truy cập 
+                        />
+                        {console.log(<Button />)}
+                    </div>
+                )
+        }
+        ReactDOM.render(<App />,document.getElementById("root"));
+    </script>
+</body>
+
+</html>

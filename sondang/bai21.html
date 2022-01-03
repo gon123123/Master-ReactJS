@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    -reder Props 
+-->
+    <div id="root"></div>
+    <script type="text/babel">
+        function List ({data}){ // dang destructuring gán
+            return (
+                <ul>
+                    {data.map((item,index)=>  <li key={index}>{item}</li>  )}
+                </ul>
+            )
+        }
+        const cars = ['BMW','honda','mazda'];
+        // container 
+        function App() { // nếu không có cái gì luôn thì trả về undefine
+
+            return (
+                        <div id="wrapper">
+                            <List data={cars} />
+                        </div>
+                    )
+        }
+        ReactDOM.render(<App />,document.getElementById("root"));
+    </script>
+</body>
+
+</html>

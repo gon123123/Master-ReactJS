@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 
+    Props 
+    - React element 
+        - su dung props giong nhu voi attribute cua th HTML
+        - 2 props class , for => className , htmlFor 
+        - phai tuan theo quy uoc co san 
+    - React components 
+        - su dung props giong nhu doi so cho function(component) 
+        - tu dat ten cho props 
+            + dat them camelCase
+            + co the bao gom dau gach ngang    
+
+    -Chu y :
+        - Prop "key" la props dac biet 
+        - Props co ban la doi so cua component 
+           => props co the la bat cu kieu du lieu gi
+        - su dunf destructuring   
+-->
+    <div id="root"></div>
+    <script type="text/babel">
+        // React.createElement(type,props,children , n);
+        // PostItem.js
+        function PostItem({
+            image,
+            title,
+            description,
+            published,
+            callback = () => {} //  hai PostItem khong cos callback neu goi se gay ra loi ,(khac phuc bang cach gán cho 1 function rong , hoacj if)
+        }){
+            // console.log(props);
+            // if(typeof callback === "function"){
+            //     callback(Math.random());
+            // }
+            return (
+                <div className="post-item">
+                    <label htmlFor="email">Email</label>  
+                    <input type="text" id="email" placeholder=""/>
+                    <img src={image}
+                        alt={title} />
+                    <h2 className="post-title">{title}</h2>
+                    <p className="post-desc">{description}</p>
+                    <p className="post-published">{published}</p>
+                </div>
+            )
+        }
+        function App(){
+            return (
+                <div id="wrapper">
+                    <PostItem 
+                    title ="lap trinh react JS" 
+                    image ="https://baoquocte.vn/stores/news_dataimages/dieulinh/012020/29/15/nhung-buc-anh-dep-tuyet-voi-ve-tinh-ban.jpg"
+                    description = "ban co kien thuc ve lap trinh" 
+                    published = "mot ngay truoc 5/3/2021"
+                    callback={() => {
+                    }}
+                    />
+                    <PostItem 
+                    title ="lap trinh react JS 2" 
+                    image ="https://baoquocte.vn/stores/news_dataimages/dieulinh/012020/29/15/nhung-buc-anh-dep-tuyet-voi-ve-tinh-ban.jpg"
+                    description = "ban co kien thuc ve lap trinh 2" 
+                    published = "mot ngay truoc 5/3/2021 2"
+                    />
+                    <PostItem 
+                    title ="lap trinh react JS 3" 
+                    image ="https://baoquocte.vn/stores/news_dataimages/dieulinh/012020/29/15/nhung-buc-anh-dep-tuyet-voi-ve-tinh-ban.jpg"
+                    description = "ban co kien thuc ve lap trinh 3" 
+                    published = "mot ngay truoc 5/3/2021 3"
+                    />
+                </div> 
+            )
+        }
+        ReactDOM.render(<App/>,document.getElementById("root"));
+    </script>
+</body>
+
+</html>
